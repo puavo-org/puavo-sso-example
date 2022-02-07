@@ -1,0 +1,15 @@
+default: &common_settings
+  redirect_to_url: 'https://api.opinsys.fi/v3/sso?return_to='
+
+development:
+  <<: *common_settings
+  bind: 'localhost'
+  port: 4567
+  return_to_url: 'http://localhost:4567'
+  sharedsecret: 'sharedsecret'
+production:
+  <<: *common_settings
+  bind: '0.0.0.0'
+  port: 8080
+  return_to_url: 'https://YOUR_FQDN'
+  sharedsecret: 'sharedsecret'
